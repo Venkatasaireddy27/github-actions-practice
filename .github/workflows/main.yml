@@ -1,0 +1,5 @@
+name: github-action-practice
+
+on:
+  push:
+    branches: [main]
