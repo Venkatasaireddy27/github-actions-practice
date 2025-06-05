@@ -1,15 +1,27 @@
 name: github-action-practice
 
 on:
-  pull_request:
+  push:
     branches: [main]
 
 jobs:
   hello:
     runs-on: ubuntu-latest
+
     steps:
+      - name: pull repo
+        uses: actions/checkout@v4
+
       - name: Say Hello
         run: echo 'Hello, Github Actions'
         
       - name: Show Date
         run: date
+
+      - name: install python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+
+      - name: python file
+        run: python hello_world.py
